@@ -43,6 +43,10 @@ trait PermissibleTrait
      */
     public function getPermissions(): array
     {
+        if(is_string($this->permissions))
+        {
+            return json_decode($this->permissions, true);
+        }
         return $this->permissions ?? [];
     }
 
